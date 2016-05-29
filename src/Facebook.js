@@ -1,25 +1,32 @@
-import React from 'react';
-import OAuth2 from './OAuth2';
+import React, { PropTypes } from 'react';
+import OAuth2               from './OAuth2';
 
-class Facebook extends React.Component {
-  render() {
-    const props = this.props;
-    return (
-      <OAuth2 {...props}>
-        <button>Sign in with Facebook</button>
-      </OAuth2>
-    );
+export const styles = {
+  button: {
+    backgroundColor: 'steelblue'
   }
-}
+};
+
+const Facebook = props => {
+  const { config, textDisplay, style, callback } = props;
+  let baseStyles = [styles.button];
+  if (style) baseStyles.push(style);
+  config.callback = callback;
+  return (
+    <OAuth2 {...config}>
+      <button style={baseStyles}>{textDisplay}</button>
+    </OAuth2>
+  );
+};
+
+Facebook.defaultProps = {
+  textDisplay: 'Sign in with Facebook'
+};
 
 Facebook.propTypes = {
-  clientId: React.PropTypes.string,
-  url: React.PropTypes.string,
-  redirectUri: React.PropTypes.string,
-  authorizationUrl: React.PropTypes.string,
-  scope: React.PropTypes.string,
-  width: React.PropTypes.number,
-  height: React.PropTypes.number
+  config     : PropTypes.object.isRequired,
+  textDisplay: PropTypes.string,
+  style      : PropTypes.object
 };
 
 export default Facebook;

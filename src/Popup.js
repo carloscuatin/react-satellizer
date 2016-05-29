@@ -1,6 +1,6 @@
-import React from 'react';
-import qs from 'querystring';
-import url from 'url';
+import React, { Component } from 'react';
+import qs                   from 'querystring';
+import url                  from 'url';
 
 class Popup extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class Popup extends React.Component {
     const props = this.props;
     const width = props.width || 500;
     const height = props.height || 500;
-    
+
     const options = {
       width: width,
       height: height,

@@ -1,8 +1,8 @@
-import React from 'react';
-import Popup from './Popup';
-import qs from 'querystring';
+import React, { Component } from 'react';
+import Popup                from './Popup';
+import qs                   from 'querystring';
 
-class OAuth2 extends React.Component {
+class OAuth2 extends Component {
   constructor(props) {
     console.log('hi')
     super(props);
@@ -37,7 +37,7 @@ class OAuth2 extends React.Component {
     const url = props.authorizationUrl + '?' + qs.stringify(params);
 
     return <div>
-      <Popup open={this.state.popupOpen} popupUrl={url} {...this.props} />
+      <Popup open={this.state.popupOpen} popupUrl={url} {...props} />
       {childrenWithProps}
     </div>;
   }

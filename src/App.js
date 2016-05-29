@@ -1,8 +1,9 @@
-import React from 'react';
-import { Facebook } from './index';
-import { render } from 'react-dom';
+import React, { Component } from 'react';
+import { render }           from 'react-dom';
+import { Facebook }         from './index';
+import { configFacebook }   from './config';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,14 +17,10 @@ class App extends React.Component {
       <div>
         Hello world
         <Facebook
-          clientId='603122136500203'
-          url='http://localhost:3000/auth/facebook'
-          redirectUri='http://localhost:3000/auth/facebook/callback'
-          authorizationUrl='https://www.facebook.com/v2.5/dialog/oauth'
-          scope='email,user_location'
-          width={580}
-          height={400}
-          callback={this.onFacebookLogin} />
+          config={configFacebook}
+          callback={this.onFacebookLogin}
+          textDisplay='Iniciar Sesion'
+        />
       </div>
     );
   }
