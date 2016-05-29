@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render }           from 'react-dom';
-import { Facebook }         from './index';
+import { Facebook }         from '../src/index';
 import { configFacebook }   from './config';
 
 class App extends Component {

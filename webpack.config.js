@@ -10,7 +10,7 @@ module.exports = {
     // listen to code updates emitted by hot middleware:
     'webpack-hot-middleware/client',
     // your code:
-    './src/App'
+    './example/App'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
